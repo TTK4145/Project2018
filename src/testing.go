@@ -16,11 +16,30 @@ type Order struct {
 }
 
 type OrderPlacedMsg struct {
-	SourceID string `json:"source_id"`
+	SourceID int    `json:"source_id"`
 	OrderID  int    `json:"order_id"`
 	MsgType  string `json:"msg_type"`
 	Order    Order  `json:"order"`
 	Priority int    `json:"priority"`
+}
+
+type OrderPlacedAck struct {
+	SourceID int    `json:"source_id"`
+	OrderID  int    `json:"order_id"`
+	MsgType  string `json:"msg_type"`
+	Score    int    `json:"score"`
+}
+
+type TakeOrderAck struct {
+	OrderID int    `json:"order_id"`
+	MsgType string `json:"msg_type"`
+}
+
+type HeartBeat struct {
+	SourceID       int           `json:"source_id"`
+	ElevatorState  ElevatorState `json:"elevator_state"`
+	AcceptedOrders []Order       `json:"accepted_orders"`
+	TakenOrders    []Order       `json:"taken_orders"`
 }
 
 func main() {
@@ -51,8 +70,8 @@ func main() {
 	}
 
 	fmt.Println(string(buffer[:n]))
-	
-	msg := OrderPlacedMsg{SourceID: "source", OrderID: 1234, MsgType: "testing type", Order:Order{Floor: 1, Direction: -1}, Priority: 1}
+
+	msg := OrderPlacedMsg{SourceID: "source", OrderID: 1234, MsgType: "testing type", Order: Order{Floor: 1, Direction: -1}, Priority: 1}
 
 	data, err := json.MarshalIndent(msg, "", " ")
 	if err != nil {

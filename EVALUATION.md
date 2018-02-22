@@ -42,7 +42,35 @@ You will need to consult the [specification](https://github.com/TTK4145/Project#
 You should not think of the design document as a complete specification but rather a draft. You should use feedback from the design review and your gained insight into the task at hand to improve/change your design as you go along.
 
 ## Code review
-> Info will be posted at a later point
+### Evaluation Criteria
+#### Personal skills
+ - You should be able to evaluate code quality based on the [code evaluation criterias](https://github.com/TTK4145/Project/blob/master/EVALUATION.md#Code-evaluation)
+ 
+#### Code evaluation
+##### Top level
+ - The entry point (or similar) should document what components/modules the system consists of.
+ - It should be clear how different components/modules communicate and depend on each other, and how they depend on external components.
+ - Naming should be consistent over the whole program.
+ - Language features should be used in a good way.
+ - Comments should give information that is difficult to express in code.
+     - Comments should not be repetition of code.
+     - Comments should generally express intent on a different abstraction level than code.
+     
+##### Modules
+ - Modules should minimize accessibility to their internals.
+     - Programmatically enforce this where possible (Erlang, Rust, etc)
+     - Enforce this through conventions if there are no language features to enable this (Python, etc)
+ - Modules should hide their implementation details.
+ - Module interfaces should represent a consistent abstraction.
+ - The module names should fit well with the module interface.
+ - Module interfaces should be simple yet complete.
+     - Avoid interfaces that are hard to use correctly.
+     
+##### Routines
+ - A routine should have a concrete purpose (do one thing well).
+     - The word "and" in a routine name usually means that something is "wrong".
+ - The routine name should indicate its purpose.
+ - Routines should be simple enough to veirfy from inspection that it fulfills its purpose without doing anything more.
 
 ## Completion test
 > Info will be posted at a later point

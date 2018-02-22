@@ -49,9 +49,9 @@ You should not think of the design document as a complete specification but rath
 #### Code evaluation
 ##### Top level
  - The entry point (or similar) should document what components/modules the system consists of.
- - It should be clear how different comonents/modules communicate and depend on each other, and how they depend on external components.
+ - It should be clear how different components/modules communicate and depend on each other, and how they depend on external components.
  - Naming should be consistent over the whole program.
- - Programming features should be used in a good way.
+ - Language features should be used in a good way.
  - Comments should give information that is difficult to express in code.
      - Comments should not be repetition of code.
      - Comments should generally express intent on a different abstraction level than code.
@@ -62,15 +62,15 @@ You should not think of the design document as a complete specification but rath
      - Enforce this through conventions if there are no language features to enable this (Python, etc)
  - Modules should hide their implementation details.
  - Module interfaces should represent a consistent abstraction.
- - The module names should fit weel with the module interface.
+ - The module names should fit well with the module interface.
  - Module interfaces should be simple yet complete.
-     - Avoid interfaces that is hard to use correctly.
+     - Avoid interfaces that are hard to use correctly.
      
 ##### Routines
  - A routine should have a concrete purpose (do one thing well).
      - The word "and" in a routine name usually means that something is "wrong".
  - The routine name should indicate its purpose.
- - Routines should be simple enough to veirfy from inspection that it fulfill its purpose without doing anything more.
+ - Routines should be simple enough to veirfy from inspection that it fulfills its purpose without doing anything more.
 
 ## Completion test
 > Info will be posted at a later point

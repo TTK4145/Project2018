@@ -71,8 +71,21 @@ You should not think of the design document as a complete specification but rath
      - The word "and" in a routine name usually means that something is "wrong".
  - The routine name should indicate its purpose.
  - Routines should be simple enough to veirfy from inspection that it fulfills its purpose without doing anything more.
+ 
+## Completion Test
+The completion test aims to test wether your system adheres to specification in a time efficient way. Some things to take note of in the different parts of the completion test follows.
 
-## Completion test
-> Info will be posted at a later point
+#### Normal operation
+When either one, two or three elevators are initialized they should adher to specification.
+
+Note: *You will be allowed to reinitialize your elevator system between testing with one, two and three elevators*
+
+#### Fault tolerance
+The elevator system should adher to specification when faults are introduced.
+
+#### Packet loss testing
+Your elevator system must adher to specification even with simulated packet loss on your network adapter (not on localhost).
+
+Note: *To test packet loss time-efficiently an unrealisticly high packet loss probability is used. This will cause loss of several packets in a row. If you rely on heartbeat timeouts or similar, you're advised to require 10 lost packets before timeout occurs. (timeout time >= 10x heartbeat period)*
 
 

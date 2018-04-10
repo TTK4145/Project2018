@@ -37,7 +37,8 @@ We do not impose any constraints on which programming languages you can use. As 
 | Java      | Not much                  | ?                               | Only native support                   |
 | C#        | Unknown                   | ?                               | Only native support                   |
 
-
+## Submission
+Follow [this](SUBMISSION.md) link to find out how you submit the project.
 
 ## Evaluation
 The project give a maximum score of 25 points. Follow [this](https://github.com/TTK4145/Project/blob/master/EVALUATION.md#evaluation) link to see a detailed description of the evalation.

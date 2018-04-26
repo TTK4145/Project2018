@@ -13,14 +13,14 @@
 
 ### 2. Elevator Behaviour
 ##### 2.1. This specification describes software for controlling `n` elevators working in parallel across `m` floors.
-##### 2.2. When a hall order is accepted, it must be served within reasonable time.
+##### 2.2. When a hall order is accepted, it must be served within reasonable time. Such order can be served by any of the `n` participating elevators.
 ##### 2.3 When a cab order is accepted, it must be served within reasonable time. The only elevator able to serve such order is the elevator corresponding to the panel where the order was placed.
-##### 2.4 It is not reasonable to expect the order to be completed as long as the only participating elevator able (as described in 2.3) to serve it is non-functional.
+##### 2.4. It is not reasonable to expect a cab order to be completed as long as the elevator able to serve it is non-functional. However, it must be served after function is restored.
 ##### 2.5 Multiple elevators must be more efficient than one, in cases where this is reasonable to expect.
 ##### 2.6 The elevator system must avoid doing unnecessary actions. 
 ##### 2.7 The elevators should have a sense of direction, more specifically, the elevators must avoid serving hall-up and hall-down orders on the same floor at the same time.
-##### 2.8 A placed order should be ignored if there is no way to assure redundancy.
-##### 2.9 A placed order can be intermittently disregarded as long as multiple placement attempts have a low probability of failing (it is allowed to disregard an order due to 3 udp packets being dropped in a row, or due to one of the elevators is busy initializing, etc).
+##### 2.8. A placed hall order should be ignored if there is no way to serve the order (as described in [2.2](SPECIFICATION.md#2-elevator-behaviour)) in the pressence of faults (as described in [3. Fault Tolerance](SPECIFICATION.md#3-fault-tolerance))
+##### 2.9 A placed hall order can be intermittently disregarded as long as multiple placement attempts have a low probability of failing (it is allowed to disregard an order due to 3 udp packets being dropped in a row, or due to one of the elevators is busy initializing, etc).
 ##### 2.10. The door must never be open while moving.
 ##### 2.11. The door must only be open when the elevator is at a floor.
 ##### 2.12. When the door is opened, it should remain open for at least 2 seconds.
@@ -34,6 +34,7 @@
 ##### 3.4. Even though errors will not happen simultaneously they can be "active" simultaneously. For instance when the second error happens before the first one is resolved.
 ##### 3.5. Loss of packets in UDP is not regarded as an error. UDP is in nature unreliable and can rightfully drop arbitrary packets. As a consequence of this, you may encounter an error at the same time as UDP packets are dropped.
 ##### 3.6. A computer that loses power (and therefore loses network) is regarded as a single failure.
+##### 3.7. The (fictional) computer system contains redundant disks with replacements readily available. You may write to file, disregarding the chances of losing anything.
 
 ### 4. Unspecified Behaviour
 ##### 4.1. What happens after the stop button is pressed is intentionally unspecified.
